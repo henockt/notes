@@ -1,0 +1,23 @@
+{% extends "main/layout.html" %}
+
+{% block body %}
+    {% if messages %}   
+        {% for message in messages %}
+            <div class="alert alert-primary" role="alert">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    <div class="jumbotron back-color text-center center-h-v">
+        <h1 class="display-4">heno Notes</h1>
+        <p class="lead">Note sharing. Made easy.</p>
+        <hr class="my-4">
+        <p id="info"></p>
+        <a class="btn btn-primary btn-lg" href="/new" role="button">Create new!</a>
+    </div>
+    <script>
+        document.onreadystatechange = () => {
+        if (document.readyState === 'complete') {
+            writeToId("This is a simple note sharing app that can be used anywhere.", "info");
+        }
+    };
+    </script>
+{% endblock %}

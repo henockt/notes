@@ -1,0 +1,20 @@
+{% extends "main/layout.html" %}
+
+{% block body %}
+    {% if messages %}   
+        {% for message in messages %}
+            <div class="alert alert-danger" role="alert">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    <form class="back-color text-center" method="post" action="/new/">
+        {% csrf_token %}
+        <div class="container mt-4 mb-4">
+            <input name="title" class="form-control" id="title_input" placeholder="Title">
+        </div>
+        <div class="container">
+            <textarea name="text">Write your notes here...</textarea>
+            <script>tinymce.init({selector:'textarea'});</script>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg mt-3">Share</button>
+    </form>
+{% endblock %}

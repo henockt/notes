@@ -1,0 +1,28 @@
+{% extends "main/layout.html" %}
+
+{% block body %}
+    {% if text %}
+        <div class="contianer text-center mt-4 mb-3">
+            <h3>{{ text_title }}</h3>
+            <small class="form-text text-muted">{{ text_pub }}</small>
+        </div>
+        <div class="container text-center">
+            {{ text|safe }}
+        </div>
+        <div class="d-flex p-2 bd-highlight text-center container w-50 mt-5">
+            <input class="form-control" id="link" type="text" placeholder="notes.he-no.tech/shared/{{ text_id }}" value="notes.he-no.tech/shared/{{ text_id }}" readonly>
+            <button type="button" class="btn cjsBtn btn-link" data-clipboard-target="#link">Copy</button>
+        </div>
+        <div class="container text-center mt-2">
+            <a class="btn btn-primary" href="/new" role="button">Create new!</a>
+        </div>
+        <script>
+            var clipboard = new ClipboardJS(".cjsBtn");
+        </script>
+    {% else %}
+        <div class="container text-center center-h-v">
+            <h4>It seems that there is no note with that link.</h4>
+            <a class="btn btn-primary" href="/new" role="button">Create one!</a>
+        </div>
+    {% endif %}
+{% endblock %}

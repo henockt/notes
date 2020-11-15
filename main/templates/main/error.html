@@ -1,0 +1,14 @@
+{% extends 'main/layout.html' %}
+
+{% block body %}
+     <div class="container text-center center-h-v">
+        {% if error_404 %}
+            <h3>404</h3>
+            <h4>It seems that the link does not exist.</h4>
+        {% else %}
+            <h3>500</h3>
+            <h4>We hit an internal server error.</h4>
+        {% endif %}
+        <h4>Go to <a class="btn btn-primary" href="/" role="button">Homepage</a></h4>
+    </div>
+{% endblock %}
