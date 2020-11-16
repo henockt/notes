@@ -34,7 +34,7 @@ ALLOWED_HOSTS = ['notes.he-no.tech', 'heno-notes.herokuapp.com']
 # Django Recommendations
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
-SECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = False
 
 # Application definition
 
