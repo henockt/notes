@@ -15,7 +15,6 @@ def new(request):
         form = TextForm(request.POST)
         if form.is_valid():
             text = form.cleaned_data.get('text')
-            print(text)
             if text == "<p>Write your notes here...</p>":
                 messages.error(request, "Invalid note. Please try again.")
                 return redirect("main:new")
@@ -45,7 +44,7 @@ def shared(request, note_id):
             text_pub = item.pub_date
             title = item.note_title
             break
-    return render(request, "main/show.html", context={'text': text, 'text_pub': text_pub, 'text_id': note_id, 'text_title': title})
+    return render(request, "main/show.html", context={'url': getHttpsUrl(request), 'text': text, 'text_pub': text_pub, 'text_id': note_id, 'text_title': title})
 
 # Generate unique id for every note
 def generate_id():
@@ -67,6 +66,15 @@ def error_404(request, exception):
 def error_500(request):
     error = {"error_404": False, "error_500": True}
     return render(request, "main/error.html", error)
+
+# return url
+def getHttpsUrl(request):
+    full_url = request.build_absolute_uri()
+    url = full_url[0:5]
+    if url == "https":
+        return url
+    else:
+        return f"https://{full_url[7:]}"
 
 # manual https redirection
 def https(request):
