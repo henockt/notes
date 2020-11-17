@@ -7,10 +7,16 @@ import string, random
 
 # homepage
 def homepage(request):
+    notHttps = https(request)
+    if notHttps:
+        return notHttps
     return render(request, "main/homepage.html")
 
 # create a new note
 def new(request):
+    notHttps = https(request)
+    if notHttps:
+        return notHttps
     if request.method == "POST":
         form = TextForm(request.POST)
         if form.is_valid():
@@ -35,6 +41,9 @@ def new(request):
 
 # Show shared notes
 def shared(request, note_id):
+    notHttps = https(request)
+    if notHttps:
+        return notHttps
     notes = Notes.objects.all()
     text = None
     text_pub = None
@@ -61,10 +70,25 @@ def generate_id():
 
 # handle 404
 def error_404(request, exception):
+    notHttps = https(request)
+    if notHttps:
+        return notHttps
     error = {"error_404": True, "error_500": False}
     return render(request, "main/error.html", error)
 
 # handle 500
 def error_500(request):
+    notHttps = https(request)
+    if notHttps:
+        return notHttps
     error = {"error_404": False, "error_500": True}
     return render(request, "main/error.html", error)
+
+# https redirection
+def https(request):
+    protocol = request.build_absolute_uri()[0:5]
+    if protocol != "https":
+        response = HttpResponse(status=302)
+        response['Location'] = f"https://{request.build_absolute_uri()[7:]}"
+        return response
+    
