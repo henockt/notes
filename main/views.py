@@ -72,7 +72,7 @@ def getHttpsUrl(request):
     full_url = request.build_absolute_uri()
     url = full_url[0:5]
     if url == "https":
-        return url
+        return full_url
     else:
         return f"https://{full_url[7:]}"
 
