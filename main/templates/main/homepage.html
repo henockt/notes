@@ -6,6 +6,7 @@
             <div class="alert alert-primary" role="alert">{{ message }}</div>
         {% endfor %}
     {% endif %}
+    <div class="alert alert-danger text-center" id="invalidAlert" style="display:none !important;" role="alert">Invalid ID<br>IDs are of length 10.</div>
     <div class="jumbotron back-color text-center center-h-v">
         <h1 class="display-4">heno Notes</h1>
         <p class="lead">Note sharing. Made easy.</p>
@@ -13,11 +14,17 @@
         <p id="info"></p>
         <a class="btn btn-primary btn-lg" href="/new" role="button">Create new!</a>
     </div>
+    <div class="lower-center text-center">
+        <small class="form-text text-muted mb-2">Have a note id?</small>
+        <div class="d-flex p-2 bd-highlight">
+            <input type="id" class="form-control" id="idInput" aria-describedby="idHelp" placeholder="Note ID">
+            <button id="openBtn" class="btn btn-primary btn-sm ml-2" onclick="openNote()" enabled>Open</button>
+        </div>
+    </div>
     <script>
         document.onreadystatechange = () => {
-        if (document.readyState === 'complete') {
-            writeToId("This is a simple note sharing app that can be used anywhere.", "info");
-        }
-    };
+            if (document.readyState === 'complete')
+                writeToId("This is a simple note sharing app that can be used anywhere.", "info");
+        };
     </script>
 {% endblock %}
