@@ -10,7 +10,7 @@ heno-notes uses a number of open source projects to work properly:
 * [TinyMCE] - awesome web-based text editor
 * [Django] - high-level Python Web framework
 * [Bootstrap] - great UI boilerplate for modern web apps
-* [jQuery] - duh
+* [jQuery] - javascript library
 * [clipboard.js] - modern copy to clipboard
 
 ### Todos
