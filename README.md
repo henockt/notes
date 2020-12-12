@@ -15,9 +15,8 @@ heno-notes uses a number of open source projects to work properly:
 
 ### Todos
 
- - Write MORE Tests
- - Add Night Mode
-
+- Add themes
+- Add login system
 [//]: #
    [Bootstrap]: <https://github.com/twbs/bootstrap>
    [jQuery]: <http://jquery.com>
