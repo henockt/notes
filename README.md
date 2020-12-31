@@ -7,19 +7,13 @@ hnotes or heno-Notes is a mobile-ready, TinyMCE powered note sharing web applica
 
 heno-notes uses a number of open source projects to work properly:
 
-* [TinyMCE] - awesome web-based text editor
-* [Django] - high-level Python Web framework
-* [Bootstrap] - great UI boilerplate for modern web apps
-* [jQuery] - javascript library
-* [clipboard.js] - modern copy to clipboard
+* [TinyMCE](https://github.com/tinymce/tinymce) - awesome web-based text editor
+* [Django](https://github.com/django/django) - high-level Python Web framework
+* [Bootstrap](https://github.com/twbs/bootstrap) - great UI boilerplate for modern web apps
+* [jQuery](http://jquery.com) - javascript library
+* [clipboard.js](https://github.com/zenorocha/clipboard.js) - modern copy to clipboard
 
 ### Todos
 
 - Add themes
 - Add login system
-[//]: #
-   [Bootstrap]: <https://github.com/twbs/bootstrap>
-   [jQuery]: <http://jquery.com>
-   [Django]: <https://github.com/django/django>
-   [TinyMCE]: <https://github.com/tinymce/tinymce>
-   [clipboard.js]: <https://github.com/zenorocha/clipboard.js>
